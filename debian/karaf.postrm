@@ -1,0 +1,28 @@
+#!/bin/sh
+# After purge:
+#  - Remove karaf user and group
+# On reinstall
+#  - Refresh the daemon
+
+# Uncomment to see debug messages from systemd setup
+#export _DEB_SYSTEMD_HELPER_DEBUG=1
+
+set -e
+
+purge_daemon_user() {
+    deluser --system karaf
+}
+
+case "$1" in
+    purge)
+        deb-systemd-helper purge
+        purge_daemon_user
+    ;;
+    remove|upgrade|abort-upgrade|abort-remove|abort-deconfigure)
+        deb-systemd-helper update-state
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0

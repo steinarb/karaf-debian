@@ -1,0 +1,43 @@
+* Debian package for apache karaf
+
+This git repository holds the scripts necessary to create a debian package of [[https://karaf.apache.org][apache karaf]].
+
+This debian package is created using standard debian packaging tools, and this debian package is built from the karaf source tar-ball and not the karaf binary tar-ball (i.e. it is built with the native openjdk on debian).
+
+** Install the requried software
+ 1. Log in as root
+ 2. Give the following commands:
+    #+BEGIN_EXAMPLE
+      apt-get update
+      apt-get install maven-debian-helper devscripts
+    #+END_EXAMPLE
+** To build the debian package:
+
+ 1. Clone the karaf-debian project
+    #+BEGIN_EXAMPLE
+      git clone https://github.com/steinarb/karaf-debian.git
+    #+END_EXAMPLE
+ 2. Build the debian package
+    #+BEGIN_EXAMPLE
+      cd karaf-debian
+      dpkg-buildpackage
+    #+END_EXAMPLE
+ 3. There will be a karaf-*.deb file in the directory above the karaf-debian directory
+
+** To update the karaf version
+
+ 1. Clone the karaf-debian project
+    #+BEGIN_EXAMPLE
+      git clone https://github.com/steinarb/karaf-debian.git
+    #+END_EXAMPLE
+ 2. Edit the karaf-debian/debian/rules file in a text editor and change the version number of the value:
+    #+BEGIN_SRC makefile
+      VERSION = 4.1.4
+    #+END_SRC
+ 3. Build the debian package
+    #+BEGIN_EXAMPLE
+      cd karaf-debian
+      dpkg-buildpackage
+    #+END_EXAMPLE
+ 4. There will be a karaf-*.deb file in the directory above the karaf-debian directory
+

@@ -1,0 +1,26 @@
+#!/bin/sh
+# Stop running karaf service before removing any files
+
+set -e
+
+stop_karaf_service() {
+    if systemctl stop karaf.service
+    then
+       echo "Stopped karaf service"
+    else
+       echo "Failed to stop karaf service"
+    fi
+
+    # wait for karaf service to stop before proceeding
+    sleep 2
+}
+
+case "$1" in
+    remove|purge|upgrade|deconfigure)
+        stop_karaf_service
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0

@@ -1,0 +1,6 @@
+Source: apache-karaf
+Maintainer: Steinar Bang <sb@dod.no>
+
+Package: karaf
+Architecture: all
+Description: Compact OSGi container and application server with maven provisioning.

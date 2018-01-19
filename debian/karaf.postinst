@@ -1,0 +1,35 @@
+#!/bin/sh
+# After install:
+#  - Remove karaf user and group
+#  - Change ownership of directories the karaf user needs to write to
+#  - Start a systemd karaf service
+
+# Uncomment to see debug messages from systemd setup
+#export _DEB_SYSTEMD_HELPER_DEBUG=1
+
+set -e
+
+create_daemon_user() {
+    if ! getent passwd karaf >/dev/null ; then
+        adduser --system --group karaf
+    fi 
+}
+
+change_karaf_files_ownership() {
+    chown -R karaf.karaf /etc/karaf
+    chown -R karaf.karaf /var/lib/karaf
+    chown -R karaf.karaf /usr/share/karaf
+}
+
+case "$1" in
+    configure)
+        create_daemon_user
+        change_karaf_files_ownership
+        deb-systemd-helper enable karaf.service
+        systemctl start karaf
+    ;;
+esac
+
+#DEBHELPER#
+
+exit 0

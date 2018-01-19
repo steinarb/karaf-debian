@@ -1,0 +1,7 @@
+*.log
+/*.tar.gz
+/debian/debhelper-build-stamp
+/debian/files
+/debian/karaf.substvars
+/debian/karaf/
+/unpacked-src/

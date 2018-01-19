@@ -1,0 +1,36 @@
+#!/usr/bin/make -f
+
+DISTRIBUTION = $(shell lsb_release -sr)
+VERSION = 4.1.4
+PACKAGEVERSION = $(VERSION)-0~$(DISTRIBUTION)0
+TARBALL = apache-karaf-$(VERSION)-src.tar.gz
+URL = http://apache.uib.no/karaf/$(VERSION)/$(TARBALL)
+SRC=unpacked-src
+KARAF_ASSEMBLY=$(SRC)/assemblies/apache-karaf/target/assembly
+DESTDIR=debian/karaf
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+	rm -rf $(SRC) $(DESTDIR)
+override_dh_auto_test:
+override_dh_auto_build:
+	wget -N --progress=dot:mega $(URL)
+	mkdir -p $(SRC)
+	(cd $(SRC); tar --strip-components=1 -xf ../$(TARBALL) )
+	(cd $(SRC); mvn clean install -DskipTests=true )
+override_dh_auto_install:
+	mkdir -p $(DESTDIR)/etc/karaf
+	mkdir -p $(DESTDIR)/usr/share/karaf
+	mkdir -p $(DESTDIR)/var/lib/karaf
+	mv $(KARAF_ASSEMBLY)/bin $(DESTDIR)/usr/share/karaf
+	mv $(KARAF_ASSEMBLY)/data $(DESTDIR)/var/lib/karaf
+	mv $(KARAF_ASSEMBLY)/deploy $(DESTDIR)/var/lib/karaf
+	mv $(KARAF_ASSEMBLY)/etc/* $(DESTDIR)/etc/karaf
+	mv $(KARAF_ASSEMBLY)/lib $(DESTDIR)/usr/share/karaf
+	mv $(KARAF_ASSEMBLY)/system $(DESTDIR)/usr/share/karaf
+	(cd files; tar cf - etc lib) | (cd $(DESTDIR); tar xf -)
+
+override_dh_gencontrol:
+	dh_gencontrol -- -v$(PACKAGEVERSION)
