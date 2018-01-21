@@ -6,7 +6,7 @@ PACKAGEVERSION = $(VERSION)-0~$(DISTRIBUTION)0
 TARBALL = apache-karaf-$(VERSION)-src.tar.gz
 URL = http://apache.uib.no/karaf/$(VERSION)/$(TARBALL)
 SRC=unpacked-src
-KARAF_ASSEMBLY=$(SRC)/assemblies/apache-karaf/target/assembly
+KARAF_ASSEMBLY=$(SRC)/assemblies/apache-karaf-minimal/target/assembly
 DESTDIR=debian/karaf
 
 %:
