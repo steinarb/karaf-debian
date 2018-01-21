@@ -32,6 +32,7 @@ override_dh_auto_install:
 	mv $(KARAF_ASSEMBLY)/system $(DESTDIR)/usr/share/karaf
 	(cd files; tar cf - etc lib) | (cd $(DESTDIR); tar xf -)
 	rm $(DESTDIR)/usr/share/karaf/bin/*.bat
+	rm -rf $(DESTDIR)/usr/share/karaf/bin/contrib
 
 override_dh_gencontrol:
 	dh_gencontrol -- -v$(PACKAGEVERSION)
