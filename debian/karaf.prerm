@@ -15,9 +15,14 @@ stop_karaf_service() {
     sleep 2
 }
 
+remove_karaf_osgi_cache() {
+    rm -rf /var/lib/karaf/data/cache
+}
+
 case "$1" in
     remove|purge|upgrade|deconfigure)
         stop_karaf_service
+        remove_karaf_osgi_cache
     ;;
 esac
 
