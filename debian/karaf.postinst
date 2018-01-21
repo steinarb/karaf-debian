@@ -27,6 +27,7 @@ case "$1" in
         change_karaf_files_ownership
         deb-systemd-helper enable karaf.service
         systemctl start karaf
+        echo "Started karaf daemon"
     ;;
 esac
 
