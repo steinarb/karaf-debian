@@ -1,6 +1,6 @@
 * Debian package for apache karaf
 
-This git repository holds the scripts necessary to create a debian package of [[https://karaf.apache.org][apache karaf]].
+This git repository holds the scripts necessary to create a debian package of the minimal distribution of [[https://karaf.apache.org][apache karaf]].
 
 This debian package is created using standard debian packaging tools, and this debian package is built from the karaf source tar-ball and not the karaf binary tar-ball (i.e. it is built with the native openjdk on debian).
 
