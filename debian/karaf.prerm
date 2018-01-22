@@ -15,14 +15,17 @@ stop_karaf_service() {
     sleep 2
 }
 
-remove_karaf_osgi_cache() {
+remove_karaf_osgi_cache_pidfile_lock_file_and_instances() {
     rm -rf /var/lib/karaf/data/cache
+    rm -f /usr/share/karaf/karaf.pid
+    rm -f /usr/share/karaf/lock
+    rm -rf /usr/share/karaf/instances
 }
 
 case "$1" in
     remove|purge|upgrade|deconfigure)
         stop_karaf_service
-        remove_karaf_osgi_cache
+        remove_karaf_osgi_cache_pidfile_lock_file_and_instances
     ;;
 esac
 
