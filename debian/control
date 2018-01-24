@@ -4,3 +4,18 @@ Maintainer: Steinar Bang <sb@dod.no>
 Package: karaf
 Architecture: all
 Description: Compact OSGi container and application server with maven provisioning.
+ Karaf can be used standalone as a container, supporting a wide range
+ of applications and technologies. It also supports the "run anywhere"
+ (on any machine with Java, cloud, docker images, …​) using the
+ embedded mode.
+ .
+ It’s a lightweight, powerful, and enterprise ready platform.
+ .
+ With this flexibility, Karaf is the perfect solution for
+ microservices, systems integration, big data, and much more.
+ .
+ Apache Karaf is powered by OSGi (but you don’t need to know what OSGi
+ is to use Karaf).
+ .
+ Apache Karaf uses either the Apache Felix or Eclipse Equinox OSGi
+ frameworks, providing additional features on top of the framework.
