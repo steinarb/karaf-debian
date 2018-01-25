@@ -1,6 +1,7 @@
 Source: apache-karaf
 Maintainer: Steinar Bang <sb@dod.no>
 Section: java
+Priority: optional
 
 Package: karaf
 Architecture: all
