@@ -1,4 +1,5 @@
 Source: apache-karaf
+Build-Depends: debhelper, wget, maven, openjdk-8-jdk
 Maintainer: Steinar Bang <sb@dod.no>
 Section: java
 Priority: optional
