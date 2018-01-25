@@ -11,7 +11,7 @@ set -e
 
 create_daemon_user() {
     if ! getent passwd karaf >/dev/null ; then
-        adduser --system --group karaf
+        adduser --system --home /var/lib/karaf --group karaf
     fi 
 }
 
