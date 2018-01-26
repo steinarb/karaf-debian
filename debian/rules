@@ -10,7 +10,7 @@ KARAF_ASSEMBLY=$(SRC)/assemblies/apache-karaf/target/assembly
 DESTDIR=debian/karaf
 
 %:
-	dh $@
+	dh $@ --with systemd
 
 override_dh_auto_clean:
 	rm -rf $(SRC) $(DESTDIR)
@@ -37,3 +37,6 @@ override_dh_auto_install:
 
 override_dh_gencontrol:
 	dh_gencontrol -- -v$(PACKAGEVERSION)
+
+override_dh_installinit:
+	dh_installinit --noscripts

@@ -2,6 +2,7 @@
 /*.tar.gz
 /debian/debhelper-build-stamp
 /debian/files
+/debian/karaf.*.debhelper
 /debian/karaf.substvars
 /debian/karaf/
 /unpacked-src/
