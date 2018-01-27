@@ -35,6 +35,8 @@ override_dh_auto_install:
 	rm $(DESTDIR)/usr/share/karaf/bin/*.bat
 	rm -rf $(DESTDIR)/usr/share/karaf/bin/contrib
 	sed -i -e 's#KARAF_BASE}/etc#KARAF_ETC}#' $(DESTDIR)/usr/share/karaf/bin/karaf
+	rm $(DESTDIR)/usr/share/karaf/lib/boot/org.osgi.core-*.jar
+	(cd $(DESTDIR)/usr/share/karaf/lib/boot/; ln -s /usr/share/maven-repo/org/osgi/org.osgi.core/debian/org.osgi.core-debian.jar org.osgi.core.jar)
 
 override_dh_gencontrol:
 	dh_gencontrol -- -v$(PACKAGEVERSION)

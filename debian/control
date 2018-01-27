@@ -6,7 +6,7 @@ Priority: optional
 
 Package: karaf
 Architecture: all
-Depends: adduser, default-jre (>=1.8)
+Depends: adduser, default-jre (>=1.8), libosgi-core-java (>=6)
 Description: Compact OSGi container and application server with maven provisioning.
  Karaf can be used standalone as a container, supporting a wide range
  of applications and technologies. It also supports the "run anywhere"
