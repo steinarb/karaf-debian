@@ -19,6 +19,7 @@ override_dh_auto_build:
 	wget -N --progress=dot:mega $(URL)
 	mkdir -p $(SRC)
 	(cd $(SRC); tar --strip-components=1 -xf ../$(TARBALL) )
+	sed -i -e 's#<module>demos</module>##' -e 's#<module>itests</module>##' $(SRC)/pom.xml
 	(cd $(SRC); mvn clean install -DskipTests=true )
 override_dh_auto_install:
 	mkdir -p $(DESTDIR)/etc/karaf
