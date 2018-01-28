@@ -1,12 +1,12 @@
 Source: apache-karaf
-Build-Depends: debhelper (>=10), wget, maven, default-jdk (>=1.8)
+Build-Depends: debhelper (>=10), wget, maven, default-jdk (>=2:1.8)
 Maintainer: Steinar Bang <sb@dod.no>
 Section: java
 Priority: optional
 
 Package: karaf
 Architecture: all
-Depends: adduser, default-jre (>=1.8), libosgi-core-java (>=6)
+Depends: adduser, default-jre (>=2:1.8), libosgi-core-java (>=6)
 Description: Compact OSGi container and application server with maven provisioning.
  Karaf can be used standalone as a container, supporting a wide range
  of applications and technologies. It also supports the "run anywhere"
