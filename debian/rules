@@ -32,6 +32,7 @@ override_dh_auto_install:
 	mv $(KARAF_ASSEMBLY)/lib $(DESTDIR)/usr/share/karaf
 	mv $(KARAF_ASSEMBLY)/system $(DESTDIR)/usr/share/karaf
 	(cd files; tar cf - etc lib) | (cd $(DESTDIR); tar xf -)
+	sed -i -e '/system.repository@snapshots, \\/ a \ \ \ \ file:\/usr\/share\/maven-repo@id=debian.repository, \\' $(DESTDIR)/etc/karaf/org.ops4j.pax.url.mvn.cfg
 	rm $(DESTDIR)/usr/share/karaf/bin/*.bat
 	rm -rf $(DESTDIR)/usr/share/karaf/bin/contrib
 	sed -i -e 's#KARAF_BASE}/etc#KARAF_ETC}#' $(DESTDIR)/usr/share/karaf/bin/karaf
