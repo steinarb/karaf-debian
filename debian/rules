@@ -40,6 +40,7 @@ override_dh_auto_install:
 	rm $(DESTDIR)/usr/share/karaf/lib/boot/jna-*.jar
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/slf4j/
 	rm -rf $(DESTDIR)/usr/share/karaf/system/net/
+	rm -rf $(DESTDIR)/usr/share/karaf/system/org/ow2/
 	(cd $(DESTDIR)/usr/share/karaf/lib/boot/; ln -s /usr/share/maven-repo/org/osgi/org.osgi.core/debian/org.osgi.core-debian.jar org.osgi.core.jar)
 	(cd $(DESTDIR)/usr/share/karaf/lib/boot/; ln -s /usr/share/maven-repo/net/java/dev/jna/jna/debian/jna-debian.jar jna.jar)
 	(cd $(DESTDIR)/usr/share/karaf/lib/boot/; ln -s /usr/share/maven-repo/net/java/dev/jna/jna-platform/debian/jna-platform-debian.jar jna-platform.jar)
