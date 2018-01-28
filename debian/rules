@@ -36,7 +36,10 @@ override_dh_auto_install:
 	rm -rf $(DESTDIR)/usr/share/karaf/bin/contrib
 	sed -i -e 's#KARAF_BASE}/etc#KARAF_ETC}#' $(DESTDIR)/usr/share/karaf/bin/karaf
 	rm $(DESTDIR)/usr/share/karaf/lib/boot/org.osgi.core-*.jar
+	rm $(DESTDIR)/usr/share/karaf/lib/boot/jna-*.jar
 	(cd $(DESTDIR)/usr/share/karaf/lib/boot/; ln -s /usr/share/maven-repo/org/osgi/org.osgi.core/debian/org.osgi.core-debian.jar org.osgi.core.jar)
+	(cd $(DESTDIR)/usr/share/karaf/lib/boot/; ln -s /usr/share/maven-repo/net/java/dev/jna/jna/debian/jna-debian.jar jna.jar)
+	(cd $(DESTDIR)/usr/share/karaf/lib/boot/; ln -s /usr/share/maven-repo/net/java/dev/jna/jna-platform/debian/jna-platform-debian.jar jna-platform.jar)
 
 override_dh_gencontrol:
 	dh_gencontrol -- -v$(PACKAGEVERSION)
