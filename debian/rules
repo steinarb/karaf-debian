@@ -33,6 +33,7 @@ override_dh_auto_install:
 	mv $(KARAF_ASSEMBLY)/system $(DESTDIR)/usr/share/karaf
 	(cd files; tar cf - etc lib) | (cd $(DESTDIR); tar xf -)
 	sed -i -e '/system.repository@snapshots, \\/ a \ \ \ \ file:\/usr\/share\/maven-repo@id=debian.repository, \\' $(DESTDIR)/etc/karaf/org.ops4j.pax.url.mvn.cfg
+	sed -i -e 's#jansi/1.16#jansi/debian#' $(DESTDIR)/etc/karaf/startup.properties
 	rm $(DESTDIR)/usr/share/karaf/bin/*.bat
 	rm -rf $(DESTDIR)/usr/share/karaf/bin/contrib
 	sed -i -e 's#KARAF_BASE}/etc#KARAF_ETC}#' $(DESTDIR)/usr/share/karaf/bin/karaf
@@ -49,9 +50,12 @@ override_dh_auto_install:
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/ops4j/pax/logging/pax-logging-logback/
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/ops4j/pax/url/pax-url-wrap/
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/jline/
+	rm -rf $(DESTDIR)/usr/share/karaf/system/org/fusesource/jansi/jansi/
 	(cd $(DESTDIR)/usr/share/karaf/lib/boot/; ln -s /usr/share/maven-repo/org/osgi/org.osgi.core/debian/org.osgi.core-debian.jar org.osgi.core.jar)
 	(cd $(DESTDIR)/usr/share/karaf/lib/boot/; ln -s /usr/share/maven-repo/net/java/dev/jna/jna/debian/jna-debian.jar jna.jar)
 	(cd $(DESTDIR)/usr/share/karaf/lib/boot/; ln -s /usr/share/maven-repo/net/java/dev/jna/jna-platform/debian/jna-platform-debian.jar jna-platform.jar)
+	mkdir -p $(DESTDIR)/usr/share/karaf/system/org/fusesource/jansi/jansi/
+	(cd $(DESTDIR)/usr/share/karaf/system/org/fusesource/jansi/jansi/; ln -s /usr/share/maven-repo/org/fusesource/jansi/jansi/debian/ debian)
 
 override_dh_gencontrol:
 	dh_gencontrol -- -v$(PACKAGEVERSION)
