@@ -48,6 +48,7 @@ override_dh_auto_install:
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/apache/servicemix/
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/ops4j/pax/logging/pax-logging-logback/
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/ops4j/pax/url/pax-url-wrap/
+	rm -rf $(DESTDIR)/usr/share/karaf/system/org/jline/
 	(cd $(DESTDIR)/usr/share/karaf/lib/boot/; ln -s /usr/share/maven-repo/org/osgi/org.osgi.core/debian/org.osgi.core-debian.jar org.osgi.core.jar)
 	(cd $(DESTDIR)/usr/share/karaf/lib/boot/; ln -s /usr/share/maven-repo/net/java/dev/jna/jna/debian/jna-debian.jar jna.jar)
 	(cd $(DESTDIR)/usr/share/karaf/lib/boot/; ln -s /usr/share/maven-repo/net/java/dev/jna/jna-platform/debian/jna-platform-debian.jar jna-platform.jar)
