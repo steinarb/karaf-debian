@@ -18,6 +18,7 @@
 [Unit]
 Description=Karaf - karaf
 After=network.target
+Documentation=https://karaf.apache.org/manual/latest/
 
 [Service]
 EnvironmentFile=/etc/karaf/karaf.conf
