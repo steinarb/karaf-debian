@@ -2,7 +2,7 @@
 
 DISTRIBUTION = $(shell lsb_release -sr)
 VERSION = 4.1.4
-PACKAGEVERSION = $(VERSION)-9~$(DISTRIBUTION)0
+PACKAGEVERSION = $(VERSION)-10~$(DISTRIBUTION)0
 TARBALL = apache-karaf-$(VERSION)-src.tar.gz
 URL = http://apache.uib.no/karaf/$(VERSION)/$(TARBALL)
 SRC=unpacked-src
@@ -24,7 +24,10 @@ override_dh_auto_build:
 override_dh_auto_install:
 	mkdir -p $(DESTDIR)/etc/karaf
 	mkdir -p $(DESTDIR)/usr/share/karaf
+	mkdir -p $(DESTDIR)/usr/share/doc/karaf
 	mkdir -p $(DESTDIR)/var/lib/karaf
+	mv $(KARAF_ASSEMBLY)/RELEASE-NOTES $(DESTDIR)/usr/share/doc/karaf/changelog
+	gzip --best $(DESTDIR)/usr/share/doc/karaf/changelog
 	mv $(KARAF_ASSEMBLY)/bin $(DESTDIR)/usr/share/karaf
 	mv $(KARAF_ASSEMBLY)/data $(DESTDIR)/var/lib/karaf
 	mv $(KARAF_ASSEMBLY)/deploy $(DESTDIR)/var/lib/karaf
