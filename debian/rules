@@ -40,6 +40,9 @@ override_dh_auto_install:
 	rm $(DESTDIR)/usr/share/karaf/bin/*.bat
 	rm -rf $(DESTDIR)/usr/share/karaf/bin/contrib
 	sed -i -e 's#KARAF_BASE}/etc#KARAF_ETC}#' $(DESTDIR)/usr/share/karaf/bin/karaf
+	(cd $(DESTDIR)/var/lib/karaf/; ln -s /usr/share/karaf/bin/ .)
+	(cd $(DESTDIR)/var/lib/karaf/; ln -s /usr/share/karaf/lib/ .)
+	(cd $(DESTDIR)/var/lib/karaf/; ln -s /usr/share/karaf/system/ .)
 	rm $(DESTDIR)/usr/share/karaf/lib/boot/org.osgi.core-*.jar
 	rm $(DESTDIR)/usr/share/karaf/lib/boot/jna-*.jar
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/apache/karaf/demos
