@@ -12,7 +12,10 @@ create_daemon_user() {
 }
 
 change_karaf_files_ownership() {
-    chown -R karaf:karaf /etc/karaf
+    chown -R root:karaf /etc/karaf
+    chmod -R 2750 /etc/karaf
+    chmod 2770 /etc/karaf
+    chmod g+w /etc/karaf/*.cfg
     chown -R karaf:karaf /var/lib/karaf
     chown -R karaf:karaf /usr/share/karaf
 }
