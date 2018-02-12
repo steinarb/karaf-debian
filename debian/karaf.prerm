@@ -17,9 +17,9 @@ stop_karaf_service() {
 
 remove_karaf_osgi_cache_pidfile_lock_file_and_instances() {
     rm -rf /var/lib/karaf/data/cache
-    rm -f /usr/share/karaf/karaf.pid
-    rm -f /usr/share/karaf/lock
-    rm -rf /usr/share/karaf/instances
+    rm -f /var/lib/karaf/karaf.pid
+    rm -f /var/lib/karaf/lock
+    rm -rf /var/lib/karaf/instances
 }
 
 case "$1" in
