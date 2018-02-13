@@ -34,7 +34,7 @@ override_dh_auto_install:
 	mv $(KARAF_ASSEMBLY)/etc/* $(DESTDIR)/etc/karaf
 	mv $(KARAF_ASSEMBLY)/lib $(DESTDIR)/usr/share/karaf
 	mv $(KARAF_ASSEMBLY)/system $(DESTDIR)/usr/share/karaf
-	(cd files; tar cf - etc lib) | (cd $(DESTDIR); tar xf -)
+	(cd files; tar cf - etc) | (cd $(DESTDIR); tar xf -)
 	sed -i -e '/system.repository@snapshots, \\/ a \ \ \ \ file:\/usr\/share\/maven-repo@id=debian.repository, \\' $(DESTDIR)/etc/karaf/org.ops4j.pax.url.mvn.cfg
 	sed -i -e 's#jansi/1.16#jansi/debian#' $(DESTDIR)/etc/karaf/startup.properties
 	rm $(DESTDIR)/usr/share/karaf/bin/*.bat
