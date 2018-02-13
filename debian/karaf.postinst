@@ -18,11 +18,13 @@ change_karaf_files_ownership() {
     chown karaf.karaf /etc/karaf/*.cfg
     chmod g+w /etc/karaf/*.cfg
     chown -R karaf:karaf /var/lib/karaf
+    chown -R karaf:karaf /var/log/karaf
     chown -R root:root /usr/share/karaf
 }
 
 case "$1" in
     configure)
+        mkdir -p /var/log/karaf
         create_daemon_user
         change_karaf_files_ownership
     ;;
