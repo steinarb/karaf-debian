@@ -2,7 +2,7 @@
 
 DISTRIBUTION = $(shell lsb_release -sr)
 VERSION = 4.1.4
-PACKAGEVERSION = $(VERSION)-10~$(DISTRIBUTION)0
+PACKAGEVERSION = $(VERSION)-11~$(DISTRIBUTION)0
 TARBALL = apache-karaf-$(VERSION)-src.tar.gz
 URL = http://apache.uib.no/karaf/$(VERSION)/$(TARBALL)
 SRC=unpacked-src
