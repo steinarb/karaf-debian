@@ -23,8 +23,8 @@ Documentation=https://karaf.apache.org/manual/latest/
 [Service]
 EnvironmentFile=/etc/karaf/karaf.conf
 
-ExecStart=/usr/share/karaf/bin/karaf daemon
-ExecStop=/usr/share/karaf/bin/karaf stop
+ExecStart=/var/lib/karaf/bin/karaf daemon
+ExecStop=/var/lib/karaf/bin/karaf stop
 
 User=karaf
 Group=karaf
