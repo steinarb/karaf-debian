@@ -17,6 +17,8 @@ change_karaf_files_ownership() {
     chmod 2770 /etc/karaf
     chown karaf.karaf /etc/karaf/*.cfg
     chmod g+w /etc/karaf/*.cfg
+    chown karaf.karaf /etc/karaf/config.properties
+    chmod g+w /etc/karaf/config.properties
     chown -R karaf:karaf /var/lib/karaf
     chown -R karaf:karaf /var/log/karaf
     chown -R root:root /usr/share/karaf
