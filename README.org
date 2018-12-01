@@ -32,7 +32,7 @@ This debian package is created using standard debian packaging tools, and this d
     #+END_EXAMPLE
  2. Edit the karaf-debian/debian/rules file in a text editor and change the version number of the value:
     #+BEGIN_SRC makefile
-      VERSION = 4.1.6
+      VERSION = 4.1.7
     #+END_SRC
  3. Build the debian package
     #+BEGIN_EXAMPLE
