@@ -26,7 +26,7 @@ override_dh_auto_install:
 	mkdir -p $(DESTDIR)/usr/share/karaf
 	mkdir -p $(DESTDIR)/usr/share/doc/karaf
 	mkdir -p $(DESTDIR)/var/lib/karaf
-	mv $(KARAF_ASSEMBLY)/RELEASE-NOTES $(DESTDIR)/usr/share/doc/karaf/changelog
+	mv $(KARAF_ASSEMBLY)/RELEASE-NOTES.md $(DESTDIR)/usr/share/doc/karaf/changelog
 	gzip --best $(DESTDIR)/usr/share/doc/karaf/changelog
 	mv $(KARAF_ASSEMBLY)/bin $(DESTDIR)/usr/share/karaf
 	mv $(KARAF_ASSEMBLY)/data $(DESTDIR)/var/lib/karaf
