@@ -53,7 +53,6 @@ override_dh_auto_install:
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/apache/aries/
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/apache/sshd/
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/apache/felix/org.apache.felix.webconsole.plugins.event/
-	rm -rf $(DESTDIR)/usr/share/karaf/system/org/apache/servicemix/
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/ops4j/pax/logging/pax-logging-logback/
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/ops4j/pax/url/pax-url-wrap/
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/jline/
