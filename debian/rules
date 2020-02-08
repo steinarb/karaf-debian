@@ -44,7 +44,7 @@ override_dh_auto_install:
 	(cd $(DESTDIR)/var/lib/karaf/; ln -s /usr/share/karaf/bin/ .)
 	(cd $(DESTDIR)/var/lib/karaf/; ln -s /usr/share/karaf/lib/ .)
 	(cd $(DESTDIR)/var/lib/karaf/; ln -s /usr/share/karaf/system/ .)
-	rm $(DESTDIR)/usr/share/karaf/lib/boot/org.osgi.core-*.jar
+	rm $(DESTDIR)/usr/share/karaf/lib/boot/osgi.core-*.jar
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/apache/karaf/demos
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/slf4j/
 	rm -rf $(DESTDIR)/usr/share/karaf/system/net/
