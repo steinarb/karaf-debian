@@ -6,3 +6,4 @@
 /debian/karaf.substvars
 /debian/karaf/
 /unpacked-src/
+debian/.debhelper/
