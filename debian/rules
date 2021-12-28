@@ -1,10 +1,10 @@
 #!/usr/bin/make -f
 
 DISTRIBUTION = $(shell lsb_release -sr)
-VERSION = 4.3.4
+VERSION = 4.3.5
 PACKAGEVERSION = $(VERSION)-1~$(DISTRIBUTION)0
 TARBALL = apache-karaf-$(VERSION)-src.tar.gz
-URL = http://archive.apache.org/dist/karaf/$(VERSION)/$(TARBALL)
+URL = http://apache.uib.no/karaf/$(VERSION)/$(TARBALL)
 SRC=unpacked-src
 KARAF_ASSEMBLY=$(SRC)/assemblies/apache-karaf/target/assembly
 DESTDIR=debian/karaf
