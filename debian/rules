@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 DISTRIBUTION = $(shell lsb_release -sr)
-VERSION = 4.4.5
+VERSION = 4.4.6
 PACKAGEVERSION = $(VERSION)-1~$(DISTRIBUTION)0
 TARBALL = apache-karaf-$(VERSION)-src.tar.gz
 URL = http://apache.uib.no/karaf/$(VERSION)/$(TARBALL)
