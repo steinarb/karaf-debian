@@ -1,4 +1,5 @@
 * Debian package for apache karaf
+[[file:https://img.shields.io/badge/Debian-D70A53?style=for-the-badge&logo=debian&logoColor=white&ext=.svg]]
 
 This git repository holds the scripts necessary to create a debian package of [[https://karaf.apache.org][apache karaf]].
 
