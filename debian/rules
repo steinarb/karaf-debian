@@ -46,7 +46,6 @@ override_dh_auto_install:
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/apache/karaf/demos
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/slf4j/
 	rm -rf $(DESTDIR)/usr/share/karaf/system/net/
-	rm -rf $(DESTDIR)/usr/share/karaf/system/org/ow2/
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/eclipse/
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/apache/aries/
 	rm -rf $(DESTDIR)/usr/share/karaf/system/org/apache/sshd/
